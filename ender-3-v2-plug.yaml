@@ -1,20 +1,10 @@
 substitutions:
   sensor_update_interval: "10s"
-  # Set timezone of the smart plug. Useful if the plug is in a location different to the HA server. Can be entered in unix Country/Area format (i.e. "Australia/Sydney")
-  # Set the duration between the sntp service polling ntp.org servers for an update
-  sntp_update_interval: "6h"
-  # Network time servers for your region, enter from lowest to highest priority. To use local servers update as per zones or countries at: https://www.ntppool.org/zone/@
-  sntp_server_1: "0.pool.ntp.org"
-  sntp_server_2: "1.pool.ntp.org"
-  sntp_server_3: "2.pool.ntp.org"  
-
-########################## End of Substitutions #########################
 
 esphome:
-  name: "ender-3-v2-plug"
+  name: "ender-3-v2-plug" # Same as your ESPHome YAML File
   friendly_name: "Ender 3 V2 Plug"
   area: "Office"
-  # name_add_mac_suffix: true
   min_version: 2024.6.0
   on_boot:
     - priority: 600
@@ -60,20 +50,11 @@ mdns:
 
 web_server:
   port: 80
-#  version: 3
 
 wifi:
   fast_connect: True
   ssid: !secret wifi_ssid
   password: !secret wifi_password
-
-
-captive_portal:
-
-# Dentra Components - Adds 'Platform - Energy Statistics'
-# https://github.com/dentra/esphome-components/tree/master/components/energy_statistics
-# external_components:
-#   - source: github://dentra/esphome-components
 
 uart:
   rx_pin: RX
@@ -140,9 +121,6 @@ sensor:
     name: Ender 3 V2 Bed Temp Test
     id: bed_temp
     entity_id: sensor.ender_3_v2_actual_bed_temp
-    # filters: 
-    #   heartbeat: 10s
-    # internal: true
     on_value:
       - if:
           condition:
@@ -244,38 +222,6 @@ sensor:
     filters:
       - multiply: 0.001
 
-  #    # Dentra Components - Define the id of the sensor providing 'Total Energy' used
-  # - platform: "energy_statistics"
-  #   total: total_energy_sensor
-
-  #    # Dentra Components - Adds Energy Today. Persistents if restarted, unlike 'total_daily_energy'
-  #   energy_today:
-  #     name: "Energy Today"
-  #     id: total_energy_today
-  #     accuracy_decimals: 3
-  #     icon: mdi:hours-24
-
-  #    # Dentra Components - Adds Energy Yesterday
-  #   energy_yesterday:
-  #     name: "Total Energy Yesterday"
-  #     id: total_energy_yesterday
-  #     icon: mdi:calendar-today
-  #     accuracy_decimals: 3
-
-  #    # Dentra Components - Adds Energy Week
-  #   energy_week:
-  #     name: "Total Energy Week"
-  #     id: total_energy_week
-  #     icon: mdi:calendar-week
-  #     accuracy_decimals: 3
-
-  #    # Dentra Components - Adds Energy Month
-  #   energy_month:
-  #     name: "Total Energy Month"
-  #     id: total_energy_month
-  #     accuracy_decimals: 3
-  #     icon: mdi:calendar-month
-
 button:
   - platform: restart
     name: "Restart"
@@ -321,23 +267,3 @@ light:
 time:
   - platform: sntp
     id: sntp_time
-  # # Define the timezone of the device
-  #   timezone: "${timezone}"
-  # # Change sync interval from default 5min to 6 hours (or as set in substitutions)
-  #   update_interval: ${sntp_update_interval}
-  # # Set specific sntp servers to use
-  #   servers: 
-  #     - "${sntp_server_1}"
-  #     - "${sntp_server_2}"
-  #     - "${sntp_server_3}"    
-  # # Publish the time the device was last restarted
-  #   on_time_sync:
-  #     then:
-  #       # Update last restart time, but only once.
-  #       - if:
-  #           condition:
-  #             lambda: 'return id(device_last_restart).state == "";'
-  #           then:
-  #             - text_sensor.template.publish:
-  #                 id: device_last_restart
-  #                 state: !lambda 'return id(sntp_time).now().strftime("%a %d %b %Y - %I:%M:%S %p");'
