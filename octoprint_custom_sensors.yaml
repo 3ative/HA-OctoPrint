@@ -1,3 +1,4 @@
+## Formatted for Split Configurations ###
 - sensor:
     - name: "Ender 3 V2 Print %"
       state: >
