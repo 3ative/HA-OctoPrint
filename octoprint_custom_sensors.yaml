@@ -1,0 +1,28 @@
+- sensor:
+    - name: "Ender 3 V2 Print %"
+      state: >
+        {% if (states('sensor.ender_3_v2_job_percentage')) == "unavailable" %}
+          0
+        {% else %}
+          {{states('sensor.ender_3_v2_job_percentage')}}
+        {% endif %}
+
+    - name: "Ender 3 V2 Nozzle Temp"
+      attributes:
+        friendly_name: "Nozzle °C"
+      state: >
+        {% if (states('sensor.ender_3_v2_actual_nozzle_temp')) == "unavailable" %}
+          0
+        {% else %}
+          {{states('sensor.ender_3_v2_actual_nozzle_temp')}}
+        {% endif %}
+
+    - name: "Ender 3 V2 Bed Temp"
+      attributes:
+        friendly_name: "Bed °C"
+      state: >
+        {% if (states('sensor.ender_3_v2_actual_bed_temp')) == "unavailable" %}
+          0
+        {% else %}
+          {{states('sensor.ender_3_v2_actual_bed_temp')}}
+        {% endif %}
