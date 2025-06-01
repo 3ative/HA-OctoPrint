@@ -28,9 +28,6 @@ sensor:
   - platform: homeassistant
     id: bed_temp
     entity_id: $bed_temp
-    # filters: 
-    #   heartbeat: 10s
-    # internal: true
     on_value:
       - if:
           condition:
@@ -55,7 +52,6 @@ switch:
     name: "Master"
     id: master
     icon: mdi:printer
-    # restore_mode: true
     optimistic: true
     on_turn_on:
       - switch.turn_on: relay
