@@ -1,7 +1,7 @@
 # HA-OctoPrint
 Everything you need to add a RPi and Octo Print to a 3D Printer, and Add it to Home Assistant
 
-## Extra Code-y Bits for Smart Plugs:
+⚙ Code snippets for Smart Plugs. (Create New or Add to existing):
 
 ```yaml
 substitutions:
