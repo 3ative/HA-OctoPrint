@@ -8,8 +8,8 @@ substitutions:
   ## OctoPrint Sensors
   is_printing: binary_sensor.ender_3_v2_printing
   bed_temp: sensor.ender_3_v2_actual_bed_temp
-  shutdown_temp: "55"
   shutdown_button: button.ender_3_v2_shutdown_system
+  shutdown_temp: "55"
 ```
 
 ```yaml
