@@ -21,7 +21,7 @@
 - [Flex Cable for Raspberry Pi Camera 450mm](https://thepihut.com/products/flex-cable-for-raspberry-pi-camera-or-display-18-457mm)
 - [Raspberry Pi 15W USB-C Power Supply: UK Plug](https://thepihut.com/products/raspberry-pi-psu-uk)
 
-### Amazon
+### Amazon UK
 - [SanDisk Ultra 32 GB Memory Card](https://amzn.to/3Hfa2vp)
 - [Raspberry Pi 4 B Metal Case with Dual Cooling Fan](https://amzn.to/3Hk5Qe3)
 - [M2.5 Screw Set](https://amzn.to/4dGhXhn)
