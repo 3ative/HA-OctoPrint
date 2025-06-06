@@ -12,7 +12,7 @@
       attributes:
         friendly_name: "Nozzle °C"
       state: >
-        {% if (states('sensor.ender_3_v2_actual_nozzle_temp')) == "unavailable" %}
+        {% if (states('sensor.ender_3_v3_actual_tool0_temp')) == "unavailable" %}
           0
         {% else %}
           {{states('sensor.ender_3_v2_actual_nozzle_temp')}}
@@ -22,7 +22,7 @@
       attributes:
         friendly_name: "Bed °C"
       state: >
-        {% if (states('sensor.ender_3_v2_actual_bed_temp')) == "unavailable" %}
+        {% if (states('sensor.ender_3_v3_actual_tool0_temp')) == "unavailable" %}
           0
         {% else %}
           {{states('sensor.ender_3_v2_actual_bed_temp')}}
