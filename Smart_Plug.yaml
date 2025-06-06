@@ -1,0 +1,49 @@
+####  Code snippets for Smart Plugs. (Create New or Add to existing):###
+
+substitutions:
+  # Replace with your OctoPrint Sensors
+  is_printing: binary_sensor.ender_3_v2_printing
+  bed_temp: sensor.ender_3_v2_actual_bed_temp
+  shutdown_button: button.ender_3_v2_shutdown_system
+  shutdown_temp: "55"
+  
+ binary_sensor:
+  ############## Extra Priner Automation ##############
+  - platform: homeassistant
+    id: is_printing
+    entity_id: $is_printing
+    internal: true
+  ############## Extra Priner Automation ##############
+
+  sensor:
+  ############## Extra Priner Automation ##############
+  - platform: homeassistant
+    id: bed_temp
+    entity_id: $bed_temp
+    on_value:
+      - if:
+          condition:
+            and:
+              - binary_sensor.is_off: is_printing
+              - switch.is_off: master
+              - lambda: "return id(bed_temp).state < $shutdown_temp;"
+          then:
+            - homeassistant.service:
+                action: button.press
+                data:
+                  entity_id: $shutdown_button
+            - delay: 15s
+            - switch.turn_off: relay
+  ############## Extra Priner Automation ##############
+  
+ switch:
+  ############## Extra Priner Automation ##############
+  - platform: template
+    name: "Master"
+    id: master
+    icon: mdi:printer
+    optimistic: true
+    on_turn_on:
+      - switch.turn_on: relay
+  ############## Extra Priner Automation ##############
+  
