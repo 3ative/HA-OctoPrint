@@ -9,7 +9,9 @@
 
 **Perfect for makers who want full 3D printer integration with their smart home setup!**
 
-📺 **Full YouTube Tutorial here:** [Ultimate Fan Project v3.1](https://youtu.be/_XgJyYwlejo)
+## 📺 **YouTube Tutorials:**
+- [Part 1: 3D Printer Upgrade](https://youtu.be/_XgJyYwlejo)
+- [Part 2: Dashboard and Power](https://youtu.be/_XgJyYwlejo)
 
 ---
 
