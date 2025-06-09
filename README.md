@@ -10,7 +10,7 @@
 **Perfect for makers who want full 3D printer integration with their smart home setup!**
 
 ## 📺 **YouTube Tutorials:**
-- [Part 1: 3D Printer Upgrade](https://youtu.be/_XgJyYwlejo)
+- [Part 1: 3D Printer Upgrade](https://youtu.be/UFJ8iK5g7hI)
 - [Part 2: Dashboard and Power](https://youtu.be/_XgJyYwlejo)
 
 ---
