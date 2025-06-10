@@ -2,10 +2,11 @@
 
 substitutions:
   # Replace with your OctoPrint Sensors
-  is_printing: binary_sensor.ender_3_v2_printing
-  bed_temp: sensor.ender_3_v2_actual_bed_temp
-  shutdown_button: button.ender_3_v2_shutdown_system
+  is_printing: binary_sensor.ender_3_v3_printing
+  bed_temp: sensor.ender_3_v3_actual_bed_temp
+  shutdown_button: button.ender_3_v3_shutdown_system
   shutdown_temp: "55"
+  internal_relay: relay
   
  binary_sensor:
   ############## Extra Priner Automation ##############
@@ -26,14 +27,14 @@ substitutions:
             and:
               - binary_sensor.is_off: is_printing
               - switch.is_off: master
-              - lambda: "return id(bed_temp).state < $shutdown_temp;"
+              - lambda: "return x < $shutdown_temp;"
           then:
             - homeassistant.service:
                 action: button.press
                 data:
                   entity_id: $shutdown_button
             - delay: 15s
-            - switch.turn_off: relay
+            - switch.turn_off: $internal_relay
   ############## Extra Priner Automation ##############
   
  switch:
@@ -44,6 +45,6 @@ substitutions:
     icon: mdi:printer
     optimistic: true
     on_turn_on:
-      - switch.turn_on: relay
+      - switch.turn_on: $internal_relay
   ############## Extra Priner Automation ##############
   
