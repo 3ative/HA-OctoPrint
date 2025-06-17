@@ -17,6 +17,9 @@
 
 ## 🛒 Parts List
 
+### 3D Files
+- [Camera Bracket](https://www.thingiverse.com/thing:7068269)
+
 ### The PiHut
 - [Raspberry Pi 4 Model B (2GB)](https://thepihut.com/products/raspberry-pi-4-model-b)
 - [ZeroCam Fisheye NightVision](https://thepihut.com/products/zerocam-fisheye-nightvision-for-pizero-raspberry-pi-3)
