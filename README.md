@@ -12,7 +12,8 @@
 ## 📺 **YouTube Tutorials:**
 - [Part 1: 3D Printer Upgrade](https://youtu.be/UFJ8iK5g7hI)
 - [Part 2: Dashboard and Power](https://youtu.be/vovr4zoI0UI)
-
+### Additional Tutorial:
+- [Fix Dashboard 'Unavailable' sensors](https://youtu.be/Wj-HQ_0qkiE)
 ---
 
 ## 🛒 Parts List
